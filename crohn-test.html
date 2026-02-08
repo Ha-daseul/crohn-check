@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크론병 자가진단 체크리스트</title>
+    <style>
+        body {
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+            background-color: #f5f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+        h2 {
+            color: #03c75a; /* 네이버 그린 컬러 */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .check-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .check-item:hover {
+            background-color: #f9f9f9;
+        }
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            accent-color: #03c75a;
+            cursor: pointer;
+        }
+        label {
+            cursor: pointer;
+            line-height: 1.4;
+            font-size: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #03c75a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #02b351;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>자가진단 체크리스트</h2>
+        
+        <div class="check-item">
+            <input type="checkbox" id="q1" class="symptom">
+            <label for="q1">복통과 설사가 2~3주 이상 계속된다.</label>
+        </div>
+        
+        <div class="check-item">
+            <input type="checkbox" id="q2" class="symptom">
+            <label for="q2">다이어트도 안 했는데 체중이 뚝뚝 빠진다.</label>
+        </div>
+        
+        <div class="check-item">
+            <input type="checkbox" id="q3" class="symptom">
+            <label for="q3">자다가 배가 아파서 깬 적이 있다 (야간 설사).</label>
+        </div>
+        
+        <div class="check-item">
+            <input type="checkbox" id="q4" class="symptom">
+            <label for="q4">항문이 아프거나 고름 같은 게 나온다.</label>
+        </div>
+
+        <button onclick="checkResult()">진단 결과 확인하기</button>
+    </div>
+
+    <script>
+        function checkResult() {
+            // 체크된 박스의 개수를 셉니다
+            const checkboxes = document.querySelectorAll('.symptom:checked');
+            const count = checkboxes.length;
+
+            if (count > 0) {
+                alert("⚠️ 주의 필요\n\n크론병이 의심될 수 있는 증상이 있습니다.\n가까운 병원을 방문하여 전문의와 상담해 보세요.");
+            } else {
+                alert("✅ 양호\n\n현재 체크된 증상이 없습니다.\n하지만 평소 컨디션 관리에 유의하세요!");
+            }
+        }
+    </script>
+</body>
+</html>
